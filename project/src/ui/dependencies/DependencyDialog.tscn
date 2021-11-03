@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/dependencies/DependencyDialog.gd" type="Script" id=1]
+
+[node name="WindowDialog" type="WindowDialog"]
+visible = true
+margin_left = -1.0
+margin_top = 20.0
+margin_right = 408.0
+margin_bottom = 145.0
+window_title = "CMake was not found"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbortButton" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 83.0
+margin_right = 117.0
+margin_bottom = 113.0
+text = "Abort"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DownloadButton" type="Button" parent="."]
+margin_left = 155.0
+margin_top = 82.0
+margin_right = 256.0
+margin_bottom = 112.0
+text = "Download"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="Button" parent="."]
+margin_left = 294.0
+margin_top = 83.0
+margin_right = 395.0
+margin_bottom = 113.0
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 394.0
+margin_bottom = 78.0
+rect_pivot_offset = Vector2( 66, 44 )
+bbcode_enabled = true
+bbcode_text = "In order to compile and run sketches, SMCE requires to use CMake. Please download and install CMake before continuing."
+text = "In order to compile and run sketches, SMCE requires to use CMake. Please download and install CMake before continuing."
+__meta__ = {
+"_edit_use_anchors_": false
+}

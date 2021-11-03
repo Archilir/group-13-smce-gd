@@ -24,9 +24,11 @@ onready var _log: RichTextLabel = $Log
 onready var _button: Button = $Button
 
 var error: String = ""
-
+var dependency_dialog = preload("res://src/ui/dependencies/DependencyDialog.tscn")
+var cmake_exists = true
 
 func _ready():
+
 	var custom_dir = OS.get_environment("SMCEGD_USER_DIR")
 	if custom_dir != "":
 		print("Custom user directory set")
@@ -66,29 +68,35 @@ func _ready():
 	Util.mkdir(Global.usr_dir_plus("config/profiles"), true)
 	
 	print("Copied RtResources")
-
 	var bar = Toolchain.new()
 	if ! is_instance_valid(bar):
 		return _error("Shared library not loaded")
 	
 	var res = bar.init(Global.user_dir)
 	if ! res.ok():
-		return _error("Unsuitable environment: %s" % res.error())
+		if res.error() == "CMake not found in PATH":
+			_header.text = res.error()
+			cmake_exists = false
+		else:
+			return _error("Unsuitable environment: %s" % res.error())
+	
 	print(bar.resource_dir())
+	
 	bar.free()
-	
 	Global.scan_named_classes("res://src")
-	
-	# somehow destroys res://
 	ModManager.load_mods()
-	
-	_continue()
+	scene_checks()
 
-func _continue():
+func scene_checks():
 	if ! main_scene:
 		return _error("No Main Scene")
-	get_tree().change_scene_to(main_scene)
+	if 	cmake_exists == false:
+		add_child(dependency_dialog.instance())
+	else:
+		_continue()
 
+func _continue():
+	get_tree().change_scene_to(main_scene)
 
 func _error(message: String) -> void:
 	var file: File = File.new()
@@ -99,7 +107,6 @@ func _error(message: String) -> void:
 	_log.text = logfile
 	_header.text += "\n" + message
 	error = "Error Reason: " + message + "\n" + logfile
-
 
 func _on_clipboard_copy() -> void:
 	OS.clipboard = error
