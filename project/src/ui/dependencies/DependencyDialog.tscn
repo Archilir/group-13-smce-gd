@@ -4,10 +4,8 @@
 
 [node name="WindowDialog" type="WindowDialog"]
 visible = true
-margin_left = -1.0
-margin_top = 20.0
-margin_right = 408.0
-margin_bottom = 145.0
+margin_right = 410.0
+margin_bottom = 101.0
 window_title = "CMake was not found"
 script = ExtResource( 1 )
 __meta__ = {
@@ -16,9 +14,9 @@ __meta__ = {
 
 [node name="AbortButton" type="Button" parent="."]
 margin_left = 16.0
-margin_top = 83.0
+margin_top = 64.0
 margin_right = 117.0
-margin_bottom = 113.0
+margin_bottom = 94.0
 text = "Abort"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -26,9 +24,9 @@ __meta__ = {
 
 [node name="DownloadButton" type="Button" parent="."]
 margin_left = 155.0
-margin_top = 82.0
+margin_top = 63.0
 margin_right = 256.0
-margin_bottom = 112.0
+margin_bottom = 93.0
 text = "Download"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,9 +34,9 @@ __meta__ = {
 
 [node name="ContinueButton" type="Button" parent="."]
 margin_left = 294.0
-margin_top = 83.0
+margin_top = 64.0
 margin_right = 395.0
-margin_bottom = 113.0
+margin_bottom = 94.0
 text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,8 +49,30 @@ margin_right = 394.0
 margin_bottom = 78.0
 rect_pivot_offset = Vector2( 66, 44 )
 bbcode_enabled = true
-bbcode_text = "In order to compile and run sketches, SMCE requires to use CMake. Please download and install CMake before continuing."
-text = "In order to compile and run sketches, SMCE requires to use CMake. Please download and install CMake before continuing."
+bbcode_text = "The application depends on CMake to build and run sketches. Please download CMake and restart SMCE."
+text = "The application depends on CMake to build and run sketches. Please download CMake and restart SMCE."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+margin_left = -2.0
+margin_top = 100.0
+margin_right = 412.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+visible = false
+margin_left = -2.0
+margin_top = 118.0
+margin_right = 412.0
+margin_bottom = 138.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

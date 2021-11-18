@@ -56,13 +56,16 @@ anchor_left = 0.497
 anchor_top = 0.222
 anchor_right = 0.497
 anchor_bottom = 0.867
-margin_left = -340.16
+margin_left = -338.9
 margin_top = 0.159988
-margin_right = 339.84
+margin_right = 341.1
 margin_bottom = -0.240051
 focus_mode = 2
 custom_styles/focus = SubResource( 1 )
 selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
