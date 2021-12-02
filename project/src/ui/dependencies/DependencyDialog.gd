@@ -20,8 +20,8 @@ onready var _abort_btn = $AbortButton
 onready var _download_btn = $DownloadButton
 onready var _continue_btn = $ContinueButton
 onready var _http = $HTTPRequest
-onready var _progress_bar = $ProgressBar
-onready var _unpacking_bar = $ProgressBar2
+onready var _progress_bar = $DownloadBar
+onready var _unpacking_bar = $UnpackBar
 
 var unpacking_in_progress = false
 var target_package: String
@@ -170,11 +170,11 @@ func unpacking_thread_handler(data):
 		yield(get_tree().create_timer(timing), "timeout")
 	_unpacking_bar.value = 100
 	_finish()
-	
+
+# Finalzie the path linking. Valid ONLY for Windows-based environments and uses
+# global PATH modification. Must be changed to something less extreme.
 func _finish():
 	if File.new().file_exists(target_exec + target_file):
-		#OS.execute("powershell.exe",["$env:Path", "+=", "';" + target_exec + "'"], true, console)
-		#(Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
 		var old_path = [] 
 		OS.execute("powershell.exe",["(", "Get-ItemProperty", "-Path", "'Registry::HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Environment'", "-Name", "PATH", ").Path"], true, old_path)
 		var new_path = old_path[0] + ";" + target_exec

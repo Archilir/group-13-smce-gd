@@ -3,9 +3,9 @@
 [ext_resource path="res://src/ui/dependencies/DependencyDialog.gd" type="Script" id=1]
 
 [node name="WindowDialog" type="WindowDialog"]
-visible = true
 margin_right = 410.0
 margin_bottom = 101.0
+popup_exclusive = true
 window_title = "CMake was not found"
 script = ExtResource( 1 )
 __meta__ = {
@@ -57,7 +57,7 @@ __meta__ = {
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="DownloadBar" type="ProgressBar" parent="."]
 visible = false
 margin_left = -2.0
 margin_top = 100.0
@@ -67,7 +67,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar2" type="ProgressBar" parent="."]
+[node name="UnpackBar" type="ProgressBar" parent="."]
 visible = false
 margin_left = -2.0
 margin_top = 118.0
