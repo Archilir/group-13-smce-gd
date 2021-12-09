@@ -3,8 +3,8 @@
 [ext_resource path="res://addons/gut/plugin_control.gd" type="Script" id=1]
 
 [node name="Gut" type="Control"]
-margin_right = 740.0
-margin_bottom = 351.0
+margin_right = 837.0
+margin_bottom = 470.0
 rect_min_size = Vector2( 740, 250 )
 script = ExtResource( 1 )
 __meta__ = {

@@ -52,13 +52,13 @@ func test_controlpane():
 #		var press_btn =controlp.pause_btn.disabled 
 #		assert_eq(press_btn,"True")
 
-func test_setgetcheck():
-	#assert_setget(UltraSonic, 'max_angle',true)
-	var debug =load("res://src/ui/utilities/debug_canvas/DebugCanvas.tscn").instance()
-	assert_setget(debug,'disabled',true,false)
-	var cam =load("res://src/ui/utilities/controllable_camera/ControllableCamera.gd").new()
-	gut.p('-- Failing --')
-	_assert_setget_called(cam,'target','set_target','get_target')
+#func test_setgetcheck():
+#	#assert_setget(UltraSonic, 'max_angle',true)
+#	var debug =load("res://src/ui/utilities/debug_canvas/DebugCanvas.tscn").instance()
+#	assert_setget(debug,'disabled',true,false)
+#	var cam =load("res://src/ui/utilities/controllable_camera/ControllableCamera.gd").new()
+#	gut.p('-- Failing --')
+#	_assert_setget_called(cam,'target','set_target','get_target')
 
 func test_status():
 	var smce = SMCE.new()
