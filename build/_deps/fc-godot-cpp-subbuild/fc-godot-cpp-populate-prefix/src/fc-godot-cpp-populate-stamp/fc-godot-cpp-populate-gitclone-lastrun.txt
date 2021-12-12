@@ -1,3 +1,0 @@
-repository='https://github.com/godotengine/godot-cpp.git'
-module=''
-tag='origin'
